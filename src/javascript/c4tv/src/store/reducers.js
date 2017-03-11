@@ -3,9 +3,20 @@ import { combineReducers } from 'redux';
 
 function gameState(state={
   topView: Array(7).fill(''),
+  hoveredColumn: undefined,
   frontView: Array(7).fill(Array(7).fill(''))
 }, action){
   switch(action.type){
+    case 'SET_HOVER_STYLE':
+      return {
+        ...state,
+        hoveredColumn: action.index
+      }
+    case 'RESET_HOVER_STYLE':
+      return {
+        ...state,
+        hoveredColumn: undefined
+      }
     default:
       return state;
   }

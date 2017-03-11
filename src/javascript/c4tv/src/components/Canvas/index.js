@@ -12,6 +12,7 @@ class Canvas extends Component {
       <div className='canvas' style={{height: this.props.height, width: this.props.width}}>
 
         <TopView />
+        <TopView hoverArray />
       </div>
     )
   }

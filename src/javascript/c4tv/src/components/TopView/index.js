@@ -3,17 +3,22 @@ import { connect } from 'react-redux';
 
 import './style.css';
 
+import Column from './column';
+
 class TopView extends Component {
 
   render () {
     return (
       <div className="topView">
         {
-          this.props.numberOfColums.map((column) => {
+          this.props.numberOfColums.map((column, index) => {
             return (
-              <div className="column">
+              <Column className="column"
+                      index={index}
+                      hovered={this.props.hoverArray && index === this.props.hoveredColumn}
+              >
 
-              </div>
+              </Column>
             )
           })
         }
@@ -25,7 +30,8 @@ class TopView extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    numberOfColums: state.gameState.topView
+    numberOfColums: state.gameState.topView,
+    hoveredColumn: state.gameState.hoveredColumn
   }
 }
 

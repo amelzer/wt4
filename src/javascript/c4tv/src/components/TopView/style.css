@@ -1,5 +1,7 @@
 .topView {
   padding-top: 100px;
+  position: absolute;
+  padding-left:50px;
 }
 
 .column {
