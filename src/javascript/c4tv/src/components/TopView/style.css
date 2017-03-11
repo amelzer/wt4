@@ -1,0 +1,14 @@
+.topView {
+  padding-top: 100px;
+}
+
+.column {
+  border-radius: 15px;
+  border: 1px solid black;
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 5px;
+}
+
