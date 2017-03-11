@@ -26,7 +26,8 @@ function gameState(state={
       })
       return {
         ...state,
-        topView
+        topView,
+        currentPlayer: (state.currentPlayer+1)%2
       }
     default:
       return state;

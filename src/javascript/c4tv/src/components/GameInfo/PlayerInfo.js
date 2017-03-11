@@ -11,7 +11,9 @@ class PlayerInfo extends Component {
           {this.props.player.name}
         </div>
 
-        <div className="playerColor" style={{backgroundColor: this.props.player.color}} />
+        <div className="playerColor" style={{backgroundColor: this.props.player.color}} >
+          {this.props.active ? 'active' : ''}
+        </div>
 
       </div>
     )

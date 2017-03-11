@@ -23,8 +23,8 @@ class TDColumn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    hoverColor: state.gameSettings.players[state.gameSettings.activePlayer].hoverColor,
-    currentPlayer: state.gameSettings.activePlayer
+    hoverColor: state.gameSettings.players[state.gameState.currentPlayer].hoverColor,
+    currentPlayer: state.gameState.currentPlayer
   }
 }
 

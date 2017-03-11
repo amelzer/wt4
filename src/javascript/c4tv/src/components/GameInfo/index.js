@@ -12,7 +12,7 @@ class GameInfo extends Component {
       <div className="gameInfo">
        {
         this.props.players.map((player, index) => {
-          return <PlayerInfo player={player} key={index} />
+          return <PlayerInfo player={player} key={index} active={index===this.props.currentPlayer}/>
         })
        }
       </div>

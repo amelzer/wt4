@@ -21,4 +21,9 @@
   align-self: center
 }
 
+.playerColor {
+  font-size: 20px;
+  color: white;
+  line-height: 50px;
+}
 
