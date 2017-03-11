@@ -8,15 +8,32 @@ import GameInfo from './../GameInfo';
 
 class Canvas extends Component {
 
+  constructor (props) {
+    super(props);
+    this.state = {
+      hover: props.showFrontView ? 'flip' : ''
+    };
+  }
+
   render () {
     return (
       <div>
       <GameInfo/>
-        <div className='canvas' style={{height: this.props.height, width: this.props.width}}>
+        <div className={"flip-container "+this.state.hover}  onClick={()=>{this.setState({hover: "flip"})}}>
+          <div className="flipper">
 
-        <TopView />
-        <TopView hoverArray />
-      </div>
+            <div className='canvas front' style={{height: this.props.height, width: this.props.width}}>
+              <TopView />
+              <TopView hoverArray />
+            </div>
+
+            <div className='canvas back' style={{height: this.props.height, width: this.props.width}}>
+              FrontView
+            </div>
+
+          </div>
+        </div>
+
       </div>
     )
   }
@@ -26,7 +43,8 @@ class Canvas extends Component {
 const mapStateToProps = (state) => {
   return {
     width: state.gameSettings.canvasWidth,
-    height: state.gameSettings.canvasHeight
+    height: state.gameSettings.canvasHeight,
+    showFrontView: state.gameState.showFrontView
   }
 }
 
