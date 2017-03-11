@@ -4,10 +4,11 @@ import { combineReducers } from 'redux';
 function gameState(state={
   topView: Array(7).fill(''),
   hoveredColumn: undefined,
-  frontView: Array(7).fill(Array(7).fill('')),
+  //frontView: Array(7).fill(Array(7).fill('')),
+  frontView: 0,
   currentPlayer: 0
 }, action){
-  console.log('ACTION!', action);
+  //console.log('ACTION!', action);
   switch(action.type){
     case 'SET_HOVER_STYLE':
       return {
@@ -20,14 +21,15 @@ function gameState(state={
         hoveredColumn: undefined
       }
     case 'CHOOSE_COLUMN_SUCCESS':
-      console.log('column reducer', action.topView);
+      console.log('column reducer frontView', action.frontView);
       let topView = action.topView.map((row) => {
         return row.player
       })
       return {
         ...state,
         topView,
-        currentPlayer: (state.currentPlayer+1)%2
+        currentPlayer: (state.currentPlayer+1)%2,
+        frontView: action.frontView
       }
     default:
       return state;

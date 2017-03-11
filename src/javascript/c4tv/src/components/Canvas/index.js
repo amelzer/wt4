@@ -23,11 +23,17 @@ class Canvas extends Component {
     this.props.createNewGame();
   }
 
+
   render () {
+
+    console.log('showFrontView ', this.props.showFrontView);
+
+    let shouldFlip = this.props.showFrontView ? 'flip' : '';
+
     return (
       <div>
       <GameInfo/>
-        <div className={"flip-container "+this.state.hover}>
+        <div className={"flip-container "+shouldFlip}>
           <div className="flipper">
 
             <div className='canvas front' style={{height: this.props.height, width: this.props.width}}>
@@ -36,7 +42,8 @@ class Canvas extends Component {
             </div>
 
             <div className='canvas back' style={{height: this.props.height, width: this.props.width}}>
-              <FrontView />
+              {/*<FrontView />*/}
+              Front View
             </div>
 
           </div>
@@ -52,7 +59,7 @@ const mapStateToProps = (state) => {
   return {
     width: state.gameSettings.canvasWidth,
     height: state.gameSettings.canvasHeight,
-    showFrontView: state.gameState.showFrontView
+    showFrontView: state.gameState.frontView
   }
 }
 

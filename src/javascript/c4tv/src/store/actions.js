@@ -45,7 +45,7 @@ export const chooseColumn = (index, playerID) => {
     let data = JSON.stringify({player: playerID, y: index});
     //data.append('json', JSON.stringify({a: "Test"}));
 
-    console.log(data);
+    //console.log(data);
 
     let postObject = {
       method: 'POST',
@@ -76,11 +76,11 @@ export const chooseColumn = (index, playerID) => {
 
 
 const chooseColumnSuccess = (fieldObject) => {
-  console.log('column success action');
+  console.log('column success action, front view: ', fieldObject.fullView);
   return {
     type: 'CHOOSE_COLUMN_SUCCESS',
     topView: fieldObject.topView1d,
-    frontView: fieldObject.fullView
+    frontView: fieldObject.frontView
   }
 }
 
