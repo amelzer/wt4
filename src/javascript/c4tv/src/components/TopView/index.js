@@ -8,8 +8,12 @@ import Column from './column';
 class TopView extends Component {
 
   render () {
+
+    let placeHereBubbleOffset = 60 + this.props.hoveredColumn*80;
+
     return (
       <div className="topView">
+        <div className="gameHints">Click on a square to place a block on top of the column </div>
         {
           this.props.numberOfColums.map((column, index) => {
             return (

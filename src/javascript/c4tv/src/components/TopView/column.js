@@ -9,12 +9,12 @@ class TDColumn extends Component {
 
   render () {
     return (
-      <div  style={{backgroundColor:this.props.hovered ? this.props.hoverColor : ''}}
-            className="column"
-            onMouseEnter={() => this.props.applyHoverStyle(this.props.index)}
-            onMouseLeave={() => this.props.resetHoverStyle()}
-            onClick={() => this.props.chooseColumn(this.props.index)}
-      />
+        <div  style={{backgroundColor:this.props.hovered ? this.props.hoverColor : ''}}
+              className="column"
+              onMouseEnter={() => this.props.applyHoverStyle(this.props.index)}
+              onMouseLeave={() => this.props.resetHoverStyle()}
+              onClick={() => this.props.chooseColumn(this.props.index)}
+        />
     )
   }
 }
