@@ -11,16 +11,25 @@ class TopView extends Component {
 
     let placeHereBubbleOffset = 60 + this.props.hoveredColumn*80;
 
+    //console.log('props', this.props.players);
+    //console.log('top View momentan', this.props.topView);
     return (
       <div className="topView">
         <div className="gameHints">Click on a square to place a block on top of the column </div>
         {
           this.props.numberOfColums.map((column, index) => {
+
+            let player = this.props.players[this.props.topView[index]];
+            //console.log("player", player);
+
             return (
               <Column className="column"
                       index={index}
                       hovered={this.props.hoverArray && index === this.props.hoveredColumn}
+                      color={player ? player.color : ''}
+                      //color={this.props.hoveredColumn}
               >
+
               </Column>
             )
           })
@@ -35,6 +44,8 @@ const mapStateToProps = (state) => {
   return {
     numberOfColums: state.gameState.topView,
     hoveredColumn: state.gameState.hoveredColumn,
+    topView: state.gameState.topView,
+    players: state.gameSettings.players
   }
 }
 

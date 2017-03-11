@@ -9,19 +9,22 @@ class TDColumn extends Component {
 
   render () {
     return (
-        <div  style={{backgroundColor:this.props.hovered ? this.props.hoverColor : ''}}
+        <div  style={{backgroundColor:this.props.hovered ? this.props.hoverColor : this.props.color}}
               className="column"
               onMouseEnter={() => this.props.applyHoverStyle(this.props.index)}
               onMouseLeave={() => this.props.resetHoverStyle()}
-              onClick={() => this.props.chooseColumn(this.props.index)}
-        />
+              onClick={() => this.props.chooseColumn(this.props.index, this.props.currentPlayer)}
+        >
+
+        </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    hoverColor: state.gameSettings.players[state.gameSettings.activePlayer].hoverColor
+    hoverColor: state.gameSettings.players[state.gameSettings.activePlayer].hoverColor,
+    currentPlayer: state.gameSettings.activePlayer
   }
 }
 
@@ -30,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     applyHoverStyle: (index) => dispatch(actions.setHoverStyle(index)),
     resetHoverStyle: () => dispatch(actions.resetHoverStyle()),
-    chooseColumn: (index) => dispatch(actions.chooseColumn(index))
+    chooseColumn: (index, player) => dispatch(actions.chooseColumn(index, player))
   }
 }
 

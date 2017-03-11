@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import './style.css';
 
 import TopView from './../TopView';
+import FrontView from './../FrontView';
 import GameInfo from './../GameInfo';
+
+import * as actions from './../../store/actions';
 
 class Canvas extends Component {
 
@@ -12,14 +15,19 @@ class Canvas extends Component {
     super(props);
     this.state = {
       hover: props.showFrontView ? 'flip' : ''
+      //hover: 'flip'
     };
+  }
+
+  componentDidMount() {
+    this.props.createNewGame();
   }
 
   render () {
     return (
       <div>
       <GameInfo/>
-        <div className={"flip-container "+this.state.hover}  onClick={()=>{this.setState({hover: "flip"})}}>
+        <div className={"flip-container "+this.state.hover}>
           <div className="flipper">
 
             <div className='canvas front' style={{height: this.props.height, width: this.props.width}}>
@@ -28,7 +36,7 @@ class Canvas extends Component {
             </div>
 
             <div className='canvas back' style={{height: this.props.height, width: this.props.width}}>
-              FrontView
+              <FrontView />
             </div>
 
           </div>
@@ -48,5 +56,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Canvas);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createNewGame: () => dispatch(actions.createNewGame())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Canvas);
 

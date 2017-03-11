@@ -1,0 +1,19 @@
+.block {
+  height: 80px;
+  width: 80px;
+  border-radius: 15px;
+  border: 1px solid red;
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+
+.winInfo {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color:#424a59;
+  font-size: 50px;
+  margin:auto;
+  width:620px;
+}
