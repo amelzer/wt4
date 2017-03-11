@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to c4tv</h2>
+          <h2>WTFour?!</h2>
         </div>
         <Canvas />
       </div>

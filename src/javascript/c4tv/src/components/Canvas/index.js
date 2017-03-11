@@ -42,8 +42,7 @@ class Canvas extends Component {
             </div>
 
             <div className='canvas back' style={{height: this.props.height, width: this.props.width}}>
-              {/*<FrontView />*/}
-              Front View
+              <FrontView />
             </div>
 
           </div>

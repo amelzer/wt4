@@ -10,16 +10,19 @@ class FrontView extends Component {
 
       <div>
         <div className="winInfo">
-         {this.props.winner + "won!"}
+         Game ended! ¯\_(ツ)_/¯
         </div>
 
 
         <div className="frontView">
-          {this.props.frontView.map((column) => {
+          {this.props.frontView ? this.props.frontView.map((column) => {
             return (
               <Row rowData={column}/>
             )
-          })}
+            })
+          :
+          "Leer"
+        }
         </div>
       </div>
     )

@@ -2,7 +2,7 @@
   height: 80px;
   width: 80px;
   border-radius: 15px;
-  border: 1px solid red;
+  border: 1px solid black;
   display: inline-block;
   margin-right: 5px;
   margin-top: 5px;
@@ -16,4 +16,8 @@
   font-size: 50px;
   margin:auto;
   width:620px;
+}
+
+.frontView {
+  transform: scaleY(-1)
 }

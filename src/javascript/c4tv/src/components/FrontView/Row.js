@@ -9,9 +9,9 @@ class Row extends Component {
     return (
       <div>
       {
-        this.props.rowData.map((row) => {
+        this.props.rowData.map((cell) => {
           return (
-            <Block />
+            <Block cellData={cell}/>
           )
         })
       }
