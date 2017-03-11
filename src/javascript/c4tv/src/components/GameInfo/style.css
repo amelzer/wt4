@@ -1,0 +1,24 @@
+.gameInfo {
+  display: flex;
+  width: 800px;
+  margin: auto;
+  height: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.playerInfoContainer {
+  flex: 1;
+  display: flex;
+}
+
+.playerName, .playerColor {
+  flex: 1;
+  border-radius: 15px;
+}
+
+.playerName {
+  align-self: center
+}
+
+

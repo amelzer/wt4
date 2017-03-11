@@ -17,7 +17,6 @@ class TopView extends Component {
                       index={index}
                       hovered={this.props.hoverArray && index === this.props.hoveredColumn}
               >
-
               </Column>
             )
           })
@@ -31,7 +30,7 @@ class TopView extends Component {
 const mapStateToProps = (state) => {
   return {
     numberOfColums: state.gameState.topView,
-    hoveredColumn: state.gameState.hoveredColumn
+    hoveredColumn: state.gameState.hoveredColumn,
   }
 }
 

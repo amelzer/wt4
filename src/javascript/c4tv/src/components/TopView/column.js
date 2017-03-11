@@ -9,24 +9,19 @@ class TDColumn extends Component {
 
   render () {
     return (
-      <div  style={{backgroundColor:this.props.hovered ? 'red' : ''}}
+      <div  style={{backgroundColor:this.props.hovered ? this.props.hoverColor : ''}}
             className="column"
             onMouseEnter={() => this.props.applyHoverStyle(this.props.index)}
             onMouseLeave={() => this.props.resetHoverStyle()}
             onClick={() => this.props.chooseColumn(this.props.index)}
-      >
-      </div>
+      />
     )
   }
 }
 
-/*
-  BackgroundColor muss aus dem übergeordneten Kommen
-
-*/
 const mapStateToProps = (state) => {
   return {
-    hoverColor: state.gameState.hoverColor
+    hoverColor: state.gameSettings.players[state.gameSettings.activePlayer].hoverColor
   }
 }
 

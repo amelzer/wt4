@@ -4,15 +4,19 @@ import { connect } from 'react-redux';
 import './style.css';
 
 import TopView from './../TopView';
+import GameInfo from './../GameInfo';
 
 class Canvas extends Component {
 
   render () {
     return (
-      <div className='canvas' style={{height: this.props.height, width: this.props.width}}>
+      <div>
+      <GameInfo/>
+        <div className='canvas' style={{height: this.props.height, width: this.props.width}}>
 
         <TopView />
         <TopView hoverArray />
+      </div>
       </div>
     )
   }
