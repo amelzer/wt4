@@ -30,16 +30,17 @@ public class GameController {
 
     @Autowired
     public GameController() {
-        this.gameField = new GameField(1, 7, 7);
+        this.gameField = new GameField(1, 7, 1);
         this.objectMapper = new ObjectMapper();
         this.objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
     }
 
     @RequestMapping(path = "/new", method = GET)
     public Response reset() throws Exception {
+        System.out.println("Request to reset field.");
         gameField = new GameField(1, 7, 7);
 
-        return getField();
+        return response();
     }
 
     @RequestMapping(path = "/field", method = GET)
@@ -85,7 +86,7 @@ public class GameController {
 
         List<GameBlock> potentialFour = gameField.getFour();
         if (!potentialFour.isEmpty()) {
-            response.setFours((GameBlock[]) potentialFour.toArray());
+            response.setFours(potentialFour);
             response.setFrontView(gameField.frontView());
             response.setFullView(gameField.getField());
         }
@@ -103,7 +104,7 @@ public class GameController {
         private GameBlock[][] frontView;
         private GameBlock[][][] fullView;
 
-        private GameBlock[] fours;
+        private List<GameBlock> fours;
 
         private Map<String, Integer> score;
 
@@ -139,11 +140,11 @@ public class GameController {
             this.fullView = fullView;
         }
 
-        public GameBlock[] getFours() {
+        public List<GameBlock> getFours() {
             return fours;
         }
 
-        public void setFours(GameBlock[] fours) {
+        public void setFours(List<GameBlock> fours) {
             this.fours = fours;
         }
 
