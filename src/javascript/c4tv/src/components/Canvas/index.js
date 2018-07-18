@@ -32,7 +32,9 @@ class Canvas extends Component {
 
     return (
       <div>
+
       <GameInfo/>
+
         <div className={"flip-container "+shouldFlip}>
           <div className="flipper">
 

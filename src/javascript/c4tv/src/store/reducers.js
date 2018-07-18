@@ -20,6 +20,11 @@ function gameState(state={
         ...state,
         hoveredColumn: undefined
       }
+    case 'CHOOSE_COLUMN_START':
+      return {
+        ...state,
+        loading: true
+      }
     case 'CHOOSE_COLUMN_SUCCESS':
       console.log('column reducer frontView', action.frontView);
       let topView = action.topView.map((row) => {
@@ -29,7 +34,8 @@ function gameState(state={
         ...state,
         topView,
         currentPlayer: (state.currentPlayer+1)%2,
-        frontView: action.frontView
+        frontView: action.frontView,
+        loading: false
       }
     default:
       return state;
@@ -40,17 +46,17 @@ function gameSettings(state={
   numberOfRows: 7,
   numberOfColumns: 7,
   canvasWidth: 800,
-  canvasHeight: 800,
+  canvasHeight: 1900,
   activePlayer: 1,
   players: [
     {
-      id: 'player1',
+      id: '1',
       name: 'Player 1',
       color: '#721551',
       hoverColor: '#9A427B'
     },
     {
-      id: 'player2',
+      id: '2',
       name: 'Player 2',
       color: '#6B8C1A',
       hoverColor: '#BCD67B'

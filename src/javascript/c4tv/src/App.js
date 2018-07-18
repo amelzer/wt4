@@ -13,8 +13,8 @@ class App extends Component {
       <Provider store={store}>
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>WTFour?!</h2>
+
+          <h2 style={{fontSize: '60px'}}>WT4?!</h2>
         </div>
         <Canvas />
       </div>

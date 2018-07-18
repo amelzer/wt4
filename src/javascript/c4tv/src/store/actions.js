@@ -21,9 +21,11 @@ export const resetHoverStyle = () => {
 
 
 export const createNewGame = () => {
-  console.log('create new game action');
+  //console.log('create new game action');
   return function (dispatch) {
-    console.log('create new game action nside');
+    //console.log('create new game action nside');
+    dispatch(chooseColumnStart);
+
     return fetch('http://192.168.2.97:8080/api/game/new')
             .then((json) => {
               dispatch(chooseColumnSuccess(json))
@@ -38,7 +40,7 @@ export const createNewGame = () => {
 export const chooseColumn = (index, playerID) => {
   return function (dispatch) {
 
-    // dispatch(chooseColumnStart);
+    dispatch(chooseColumnStart);
 
     let headers = new Headers();
 
@@ -74,6 +76,11 @@ export const chooseColumn = (index, playerID) => {
   }
 }
 
+const chooseColumnStart = () => {
+  return {
+    type: 'CHOOSE_COLUMN_START'
+  }
+}
 
 const chooseColumnSuccess = (fieldObject) => {
   console.log('column success action, front view: ', fieldObject.fullView);

@@ -45,3 +45,13 @@
 .back {
   transform: rotateY(180deg);
 }
+
+.newGameArea {
+  height: 50px;
+  margin-top:50px;
+}
+
+.newGameButton {
+  height: 50px;
+  font-size: 30px;
+}

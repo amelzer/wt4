@@ -18,7 +18,8 @@
 }
 
 .playerName {
-  align-self: center
+  align-self: center;
+  font-size: 25px;
 }
 
 .playerColor {

@@ -15,7 +15,9 @@ class TopView extends Component {
     //console.log('top View momentan', this.props.topView);
     return (
       <div className="topView">
-        <div className="gameHints">Click on a square to place a block on top of the column </div>
+        <div className="gameHints">
+          {this.props.loading ? "Loading, please wait" : "Click on a square to place a block on top of the column. \n Try to connect 4 while looking from above."}
+         </div>
         {
           this.props.numberOfColums.map((column, index) => {
 
@@ -27,9 +29,9 @@ class TopView extends Component {
                       index={index}
                       hovered={this.props.hoverArray && index === this.props.hoveredColumn}
                       color={player ? player.color : ''}
+                      id={player ? player.id : ''}
                       //color={this.props.hoveredColumn}
               >
-
               </Column>
             )
           })
@@ -45,7 +47,8 @@ const mapStateToProps = (state) => {
     numberOfColums: state.gameState.topView,
     hoveredColumn: state.gameState.hoveredColumn,
     topView: state.gameState.topView,
-    players: state.gameSettings.players
+    players: state.gameSettings.players,
+    loading: state.gameState.loading
   }
 }
 
